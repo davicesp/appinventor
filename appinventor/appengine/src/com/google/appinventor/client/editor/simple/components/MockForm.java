@@ -146,7 +146,7 @@ public final class MockForm extends MockContainer {
    * Widget for a mock phone navigation bar; Shows at the bottom of the viewer
    */
   private class NavigationBar extends Composite {
-    private static final int HEIGHT = 35;
+    private static final int HEIGHT = 25;
 
     // UI elements
     private DockPanel bar;
@@ -183,12 +183,12 @@ public final class MockForm extends MockContainer {
   // the designer we use sizes of GWT widgets, and not the sizes of the actual Android widgets.
 
   private static final int PHONE_PORTRAIT_WIDTH = 320;
-  private static final int PHONE_PORTRAIT_HEIGHT = 470 + 35; // Adds 35 for the navigation bar
+  private static final int PHONE_PORTRAIT_HEIGHT = 470 + 25; // Adds 35 for the navigation bar
   private static final int PHONE_LANDSCAPE_WIDTH = PHONE_PORTRAIT_HEIGHT;
   private static final int PHONE_LANDSCAPE_HEIGHT = PHONE_PORTRAIT_WIDTH;
 
   private static final int TABLET_PORTRAIT_WIDTH = 480;
-  private static final int TABLET_PORTRAIT_HEIGHT = 640 + 35; // Adds 35 for the navigation bar
+  private static final int TABLET_PORTRAIT_HEIGHT = 640 + 25; // Adds 35 for the navigation bar
   private static final int TABLET_LANDSCAPE_WIDTH = TABLET_PORTRAIT_HEIGHT;
   private static final int TABLET_LANDSCAPE_HEIGHT = TABLET_PORTRAIT_WIDTH;
 
