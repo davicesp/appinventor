@@ -61,11 +61,6 @@ App Inventor uses Blockly, the web-based visual programming editor from Google, 
 
 For developers who will be working on Blocky within the context of App Inventor, the preferred checkout procedure is to perform a `git submodule init`, edit the `.git/config` file to use the read/write SSH URL for [MIT CML's Blockly fork](https://github.com/mit-cml/blockly) instead of the public read-only HTTPS URL assumed by default (to support pushing changes). After changing `.git/config`, a `git submodule update` will pull the repository.
 
-If you need to switch back to a branch that does contains the Blockly and Closure Library sources in the tree, you will need to run the command:
-
-    $ git submodule deinit .
-
-to clear out the submodules ___before switching branches___. When switching back, you will need to repeat the initialization and update procedure above.
 
 ### Compiling
 Before compiling the code, an [auth key](https://docs.google.com/document/pub?id=1Xc9yt02x3BRoq5m1PJHBr81OOv69rEBy8LVG_84j9jc#h.yikyg2e1rfut) is needed. You can create one by running the following commands:
