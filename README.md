@@ -52,9 +52,7 @@ Configuring a remote pointing to this repository is also a good idea if you are 
     $ cd appinventor-sources
     $ git remote add upstream https://github.com/mit-cml/appinventor-sources.git
 
-Finally, you will also have to make sure that you are ignoring files that need ignoring:
 
-    $ cp sample-.gitignore .gitignore
 
 ### Checkout dependencies
 App Inventor uses Blockly, the web-based visual programming editor from Google, as a core part of its editor. Blockly core is made available to App Inventor as a git submodule. The first time after forking or cloning the repository, you will need to perform the following commands:
