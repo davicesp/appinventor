@@ -6,6 +6,9 @@
 
 package com.google.appinventor.components.runtime;
 
+import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
+
 import com.google.appinventor.components.annotations.DesignerComponent;
 import com.google.appinventor.components.annotations.DesignerProperty;
 import com.google.appinventor.components.annotations.PropertyCategory;
@@ -107,6 +110,8 @@ public final class Label extends AndroidViewComponent {
     TextViewUtil.setFontTypeface(view, fontTypeface, bold, italic);
     FontSize(Component.FONT_DEFAULT_SIZE);
     Text("");
+     /* Clickable(false);
+     */
     TextColor(Component.COLOR_DEFAULT);
     HTMLFormat(false);
     HasMargins(true);
@@ -156,6 +161,70 @@ public final class Label extends AndroidViewComponent {
     this.textAlignment = alignment;
     TextViewUtil.setAlignment(view, alignment, false);
   }
+    
+    // nuevo++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   public abstract void click();
+
+  
+  public boolean longClick() {
+    return false;
+  }
+
+  // OnClickListener implementation
+
+  @Override
+  public void onClick(View view) {
+    click();
+  }
+
+  // OnFocusChangeListener implementation
+
+  @Override
+  public void onFocusChange(View previouslyFocused, boolean gainFocus) {
+    if (gainFocus) {
+      GotFocus();
+    } else {
+      LostFocus();
+    }
+  }
+
+  // OnLongClickListener implementation
+
+  @Override
+  public boolean onLongClick(View view) {
+    return longClick();
+  }
+    @Override
+  public void click() {
+    // Call the users Click event handler. Note that we distinguish the click() abstract method
+    // implementation from the Click() event handler method.
+    Click();
+  }
+
+  /**
+   * Indicates a user has clicked on the button.
+   */
+  @SimpleEvent(description = "User tapped and released the button.")
+  public void Click() {
+    EventDispatcher.dispatchEvent(this, "Click");
+  }
+
+  @Override
+  public boolean longClick() {
+    // Call the users Click event handler. Note that we distinguish the longclick() abstract method
+    // implementation from the LongClick() event handler method.
+    return LongClick();
+  }
+
+  /**
+   * Indicates a user has long clicked on the button.
+   */
+  @SimpleEvent(description = "User held the button down.")
+  public boolean LongClick() {
+    return EventDispatcher.dispatchEvent(this, "LongClick");
+  }
+}
+    // final+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   /**
    * Returns the label's background color as an alpha-red-green-blue
