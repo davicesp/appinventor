@@ -69,6 +69,10 @@ public interface OdeMessages extends Messages {
   @DefaultMessage("Hide Warnings")
   @Description("Text on Toggle Warning Button")
   String hideWarnings();
+  
+  @DefaultMessage("Clickable")
+  @Description("")
+  String ClickableProperties();
 
   @DefaultMessage("Upload File ...")
   @Description("Text on \"Add...\" button")
