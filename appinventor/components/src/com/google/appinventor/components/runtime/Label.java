@@ -163,67 +163,33 @@ public final class Label extends AndroidViewComponent {
   }
     
     // nuevo++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   public abstract void click();
-
+  @SimpleEvent(description="Event to detect that a user has done a simple \"Click\".")
+  public final void Click()
+  {
+    EventDispatcher.dispatchEvent(this, "Click", new Object[0]);
+  }
+  public final void onClick(View paramAnonymousView)
+  {
+    Label.this.Click();
+  }
+  public final boolean onLongClick(View paramAnonymousView)
+  {
+    Label.this.LongClick();
+    return true;
+  }
+  @SimpleProperty
+  public final boolean Clickable()
+  {
+    return this.Clickable();
+  }
   
-  public boolean longClick() {
-    return false;
-  }
-
-  // OnClickListener implementation
-
-  @Override
-  public void onClick(View view) {
-    click();
-  }
-
-  // OnFocusChangeListener implementation
-
-  @Override
-  public void onFocusChange(View previouslyFocused, boolean gainFocus) {
-    if (gainFocus) {
-      GotFocus();
-    } else {
-      LostFocus();
-    }
-  }
-
-  // OnLongClickListener implementation
-
-  @Override
-  public boolean onLongClick(View view) {
-    return longClick();
-  }
-    @Override
-  public void click() {
-    // Call the users Click event handler. Note that we distinguish the click() abstract method
-    // implementation from the Click() event handler method.
-    Click();
-  }
-
-  /**
-   * Indicates a user has clicked on the button.
-   */
-  @SimpleEvent(description = "User tapped and released the button.")
-  public void Click() {
-    EventDispatcher.dispatchEvent(this, "Click");
-  }
-
-  @Override
-  public boolean longClick() {
-    // Call the users Click event handler. Note that we distinguish the longclick() abstract method
-    // implementation from the LongClick() event handler method.
-    return LongClick();
-  }
-
-  /**
-   * Indicates a user has long clicked on the button.
-   */
-  @SimpleEvent(description = "User held the button down.")
-  public boolean LongClick() {
-    return EventDispatcher.dispatchEvent(this, "LongClick");
-  }
+  private void LongClick() {
+	// TODO Auto-generated method stub
+	
 }
+   
+
+ 
     // final+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   /**
